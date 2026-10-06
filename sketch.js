@@ -60,6 +60,9 @@ function setup() {
   // 建立全螢幕畫布，自動適配手機、平板、電腦
   createCanvas(windowWidth, windowHeight);
 
+  // 設定畫布預設文字字型為 Google Fonts 的 Noto Serif HK
+  textFont('Noto Serif HK');
+
   // 建立「下一題 / 看總成績」按鈕
   nextButton = createButton('下一題');
   styleButton(nextButton, '#2b2d42', '#ffffff');
@@ -115,7 +118,7 @@ function draw() {
     rect(width / 2, boxY, boxWidth, boxHeight, 12);
     pop();
 
-    // 顯示題目文字：文字框同樣以中心為基準，才會正好落在卡片正中央
+    // 顯示題目文字：文字框同樣以中心為基準，正好落在卡片正中央
     push();
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
@@ -243,8 +246,10 @@ function windowResized() {
   }
 }
 
-// 選項按鈕通用樣式設定
+// 選項按鈕通用樣式設定（套用 Noto Serif HK 字型）
 function styleOptionButton(btn) {
+  btn.style('font-family', '"Noto Serif HK", serif');
+  btn.style('font-weight', '500');
   btn.style('font-size', width < 600 ? '15px' : '17px');
   btn.style('background-color', '#ffffff');
   btn.style('color', '#2b2d42');
@@ -256,8 +261,9 @@ function styleOptionButton(btn) {
   btn.style('box-shadow', '0 4px 6px rgba(0, 0, 0, 0.05)');
 }
 
-// 下一題按鈕通用樣式設定
+// 下一題按鈕通用樣式設定（套用 Noto Serif HK 字型）
 function styleButton(btn, bgColor, textColor) {
+  btn.style('font-family', '"Noto Serif HK", serif');
   btn.style('font-size', '18px');
   btn.style('font-weight', 'bold');
   btn.style('background-color', bgColor);
